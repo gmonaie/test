@@ -1,7 +1,7 @@
 require(highfrequency)
 require(stringr)
-library(doSNOW)
-library(foreach)
+require(doSNOW)
+require(foreach)
 
 use.fasttime <- if (require(fasttime)) {
   TRUE
@@ -25,6 +25,7 @@ PosixFun <- if (use.fasttime) {
 }
 
 base_dir <- "~/xts_data"
+base_dir <- "C:/Users/gmonaie/xts_data/"
 
 # if base_dir doesn't end with a forward slash, add a forward slash at the end
 if (substr(base_dir, nchar(base_dir), nchar(base_dir)) != "/") {
@@ -38,6 +39,8 @@ dir.create(archive_dir <- paste0(base_dir, "archive/"), mode="0755",
 dir.create(tick_dir <- paste0(base_dir, "tick/"), mode="0755", 
            showWarnings=FALSE)
 dir.create(sec_dir <- paste0(base_dir, "sec/"), mode="0755", 
+           showWarnings=FALSE)
+dir.create(min_dir <- paste0(base_dir, "min/"), mode="0755", 
            showWarnings=FALSE)
 
 # set some options
